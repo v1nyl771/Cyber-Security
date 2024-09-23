@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="calculator.css">
+<script type="text/javascript" src="calculator.js"></script>
+</head>
+
+<body onload="emptyTxtOutput()">
+<table style="margin: 135px auto;">
+<tr>
+<th colspan="5">
+<input type="textbox" id="txtOutput" class="txtbox"></input>
+<input type="hidden" id="num1"></input>
+<input type="hidden" id="opp"></input>
+<input type="hidden" id="num2"></input>
+</th>
+</tr>
+
+<tr>
+<td><input type="button" class="button" id="btn1" value="1" onclick="onClick(1)"/></td>
+<td><input type="button" class="button" id="btn2" value="2" onclick="onClick(2)"/></td>
+<td><input type="button" class="button" id="btn3" value="3" onclick="onClick(3)"/></td>
+<td><input type="button" class="button" id="add" value="+" onclick="opperAnd('+')"/></td>
+<td rowspan="4"><input type="button" class="button-eq" id="equ" value="=" onclick="equalsTo()"/></td>
+</tr>
+
+<tr>
+<td><input type="button" class="button" id="btn4" value="4" onclick="onClick(4)"/></td>
+<td><input type="button" class="button" id="btn5" value="5" onclick="onClick(5)"/></td>
+<td><input type="button" class="button" id="btn6" value="6" onclick="onClick(6)"/></td>
+<td><input type="button" class="button" id="sub" value="-" onclick="opperAnd('-')"/></td>
+</tr>
+
+<tr>
+<td><input type="button" class="button" id="btn7" value="7" onclick="onClick(7)"/></td>
+<td><input type="button" class="button" id="btn8" value="8" onclick="onClick(8)"/></td>
+<td><input type="button" class="button" id="btn9" value="9" onclick="onClick(9)"/></td>
+<td><input type="button" class="button" id="mul" value="*" onclick="opperAnd('*')"/></td>
+</tr>
+
+<tr>
+<td><input type="button" class="button" id="clear" value="C" onclick="emptyTxtOutput()"/></td></td>
+<td><input type="button" class="button" class="button" id="btn0" value="0" onclick="onClick(0)"/></td>
+<td><input type="button" class="button" id="point" value="." onclick="onClick('.')"/></td>
+<td><input type="button" class="button" id="div" value="/" onclick="opperAnd('/')"/></td>
+</tr>
+</body>
+
+</html>

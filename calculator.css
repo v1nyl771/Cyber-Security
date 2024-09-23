@@ -1,0 +1,25 @@
+table {
+	background-color:#972997;
+	}
+.button {
+	width:100%;
+	background-color: purple;
+	color:white;
+	border:#661466 outset;
+}
+
+.button-eq {
+	padding: 160% 0;
+	height:100%;
+	width:100%;
+	background-color: purple;
+	color:white;
+	border:#661466 outset;
+}
+
+.txtbox{
+	background-color:#470f47;
+	color:white;
+		border:#661466 inset;
+
+}
